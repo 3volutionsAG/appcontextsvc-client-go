@@ -4,7 +4,7 @@ This is the official placeme appcontextsvc SDK for go.
 
 ## Installation
 
-package repository is missing, please open an issue about this.
+Install like any other regular go module: `go get -u gitlab.com/place-me/appcontextsvc-client-go`
 
 ## Generation
 
