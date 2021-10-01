@@ -4,10 +4,10 @@ package appcontextsvc_client
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -19,10 +19,10 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RbacServiceClient interface {
-	AssignSubjectToRole(ctx context.Context, in *AssignSubjectToRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemoveSubjectFromRole(ctx context.Context, in *RemoveSubjectFromRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	AssignPermissionToRole(ctx context.Context, in *AssignPermissionToRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemovePermissionFromRole(ctx context.Context, in *RemovePermissionFromRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	AssignSubjectToRole(ctx context.Context, in *AssignSubjectToRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	RemoveSubjectFromRole(ctx context.Context, in *RemoveSubjectFromRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	AssignPermissionToRole(ctx context.Context, in *AssignPermissionToRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	RemovePermissionFromRole(ctx context.Context, in *RemovePermissionFromRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	AssignedRolesFromSubject(ctx context.Context, in *AssignedRolesFromSubjectRequest, opts ...grpc.CallOption) (*AssignedRolesResponse, error)
 	AssignedPermissionsFromSubject(ctx context.Context, in *AssignedPermissionsFromSubjectRequest, opts ...grpc.CallOption) (*AssignedPermissionsResponse, error)
 	AssignedSubjectsFromRole(ctx context.Context, in *AssignedSubjectsFromRoleRequest, opts ...grpc.CallOption) (*AssignedSubjectsFromRoleResponse, error)
@@ -38,8 +38,8 @@ func NewRbacServiceClient(cc grpc.ClientConnInterface) RbacServiceClient {
 	return &rbacServiceClient{cc}
 }
 
-func (c *rbacServiceClient) AssignSubjectToRole(ctx context.Context, in *AssignSubjectToRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *rbacServiceClient) AssignSubjectToRole(ctx context.Context, in *AssignSubjectToRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignSubjectToRole", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -47,8 +47,8 @@ func (c *rbacServiceClient) AssignSubjectToRole(ctx context.Context, in *AssignS
 	return out, nil
 }
 
-func (c *rbacServiceClient) RemoveSubjectFromRole(ctx context.Context, in *RemoveSubjectFromRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *rbacServiceClient) RemoveSubjectFromRole(ctx context.Context, in *RemoveSubjectFromRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/RemoveSubjectFromRole", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -56,8 +56,8 @@ func (c *rbacServiceClient) RemoveSubjectFromRole(ctx context.Context, in *Remov
 	return out, nil
 }
 
-func (c *rbacServiceClient) AssignPermissionToRole(ctx context.Context, in *AssignPermissionToRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *rbacServiceClient) AssignPermissionToRole(ctx context.Context, in *AssignPermissionToRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignPermissionToRole", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -65,8 +65,8 @@ func (c *rbacServiceClient) AssignPermissionToRole(ctx context.Context, in *Assi
 	return out, nil
 }
 
-func (c *rbacServiceClient) RemovePermissionFromRole(ctx context.Context, in *RemovePermissionFromRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *rbacServiceClient) RemovePermissionFromRole(ctx context.Context, in *RemovePermissionFromRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/RemovePermissionFromRole", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -123,10 +123,10 @@ func (c *rbacServiceClient) AssignedPermissionsFromRole(ctx context.Context, in 
 // All implementations must embed UnimplementedRbacServiceServer
 // for forward compatibility
 type RbacServiceServer interface {
-	AssignSubjectToRole(context.Context, *AssignSubjectToRoleRequest) (*emptypb.Empty, error)
-	RemoveSubjectFromRole(context.Context, *RemoveSubjectFromRoleRequest) (*emptypb.Empty, error)
-	AssignPermissionToRole(context.Context, *AssignPermissionToRoleRequest) (*emptypb.Empty, error)
-	RemovePermissionFromRole(context.Context, *RemovePermissionFromRoleRequest) (*emptypb.Empty, error)
+	AssignSubjectToRole(context.Context, *AssignSubjectToRoleRequest) (*empty.Empty, error)
+	RemoveSubjectFromRole(context.Context, *RemoveSubjectFromRoleRequest) (*empty.Empty, error)
+	AssignPermissionToRole(context.Context, *AssignPermissionToRoleRequest) (*empty.Empty, error)
+	RemovePermissionFromRole(context.Context, *RemovePermissionFromRoleRequest) (*empty.Empty, error)
 	AssignedRolesFromSubject(context.Context, *AssignedRolesFromSubjectRequest) (*AssignedRolesResponse, error)
 	AssignedPermissionsFromSubject(context.Context, *AssignedPermissionsFromSubjectRequest) (*AssignedPermissionsResponse, error)
 	AssignedSubjectsFromRole(context.Context, *AssignedSubjectsFromRoleRequest) (*AssignedSubjectsFromRoleResponse, error)
@@ -139,16 +139,16 @@ type RbacServiceServer interface {
 type UnimplementedRbacServiceServer struct {
 }
 
-func (UnimplementedRbacServiceServer) AssignSubjectToRole(context.Context, *AssignSubjectToRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedRbacServiceServer) AssignSubjectToRole(context.Context, *AssignSubjectToRoleRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AssignSubjectToRole not implemented")
 }
-func (UnimplementedRbacServiceServer) RemoveSubjectFromRole(context.Context, *RemoveSubjectFromRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedRbacServiceServer) RemoveSubjectFromRole(context.Context, *RemoveSubjectFromRoleRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveSubjectFromRole not implemented")
 }
-func (UnimplementedRbacServiceServer) AssignPermissionToRole(context.Context, *AssignPermissionToRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedRbacServiceServer) AssignPermissionToRole(context.Context, *AssignPermissionToRoleRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AssignPermissionToRole not implemented")
 }
-func (UnimplementedRbacServiceServer) RemovePermissionFromRole(context.Context, *RemovePermissionFromRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedRbacServiceServer) RemovePermissionFromRole(context.Context, *RemovePermissionFromRoleRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemovePermissionFromRole not implemented")
 }
 func (UnimplementedRbacServiceServer) AssignedRolesFromSubject(context.Context, *AssignedRolesFromSubjectRequest) (*AssignedRolesResponse, error) {

@@ -4,11 +4,11 @@ package appcontextsvc_client
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	models "gitlab.com/place-me/appcontextsvc-client-go/models"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -21,7 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InvitationServiceClient interface {
 	ConfirmInvitation(ctx context.Context, in *ConfirmInvitationRequest, opts ...grpc.CallOption) (*models.InvitationState, error)
-	Invite(ctx context.Context, in *InviteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Invite(ctx context.Context, in *InviteRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	Resend(ctx context.Context, in *ResendInvitationRequest, opts ...grpc.CallOption) (*models.Invitation, error)
 }
 
@@ -42,8 +42,8 @@ func (c *invitationServiceClient) ConfirmInvitation(ctx context.Context, in *Con
 	return out, nil
 }
 
-func (c *invitationServiceClient) Invite(ctx context.Context, in *InviteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *invitationServiceClient) Invite(ctx context.Context, in *InviteRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.InvitationService/Invite", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -65,7 +65,7 @@ func (c *invitationServiceClient) Resend(ctx context.Context, in *ResendInvitati
 // for forward compatibility
 type InvitationServiceServer interface {
 	ConfirmInvitation(context.Context, *ConfirmInvitationRequest) (*models.InvitationState, error)
-	Invite(context.Context, *InviteRequest) (*emptypb.Empty, error)
+	Invite(context.Context, *InviteRequest) (*empty.Empty, error)
 	Resend(context.Context, *ResendInvitationRequest) (*models.Invitation, error)
 	mustEmbedUnimplementedInvitationServiceServer()
 }
@@ -77,7 +77,7 @@ type UnimplementedInvitationServiceServer struct {
 func (UnimplementedInvitationServiceServer) ConfirmInvitation(context.Context, *ConfirmInvitationRequest) (*models.InvitationState, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfirmInvitation not implemented")
 }
-func (UnimplementedInvitationServiceServer) Invite(context.Context, *InviteRequest) (*emptypb.Empty, error) {
+func (UnimplementedInvitationServiceServer) Invite(context.Context, *InviteRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Invite not implemented")
 }
 func (UnimplementedInvitationServiceServer) Resend(context.Context, *ResendInvitationRequest) (*models.Invitation, error) {

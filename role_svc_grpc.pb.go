@@ -4,12 +4,12 @@ package appcontextsvc_client
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	base "gitlab.com/place-me/appcontextsvc-client-go/base"
 	models "gitlab.com/place-me/appcontextsvc-client-go/models"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -25,7 +25,7 @@ type RoleServiceClient interface {
 	GetRole(ctx context.Context, in *GetRoleRequest, opts ...grpc.CallOption) (*models.Role, error)
 	CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*models.Role, error)
 	UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*models.Role, error)
-	DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
 type roleServiceClient struct {
@@ -72,8 +72,8 @@ func (c *roleServiceClient) UpdateRole(ctx context.Context, in *UpdateRoleReques
 	return out, nil
 }
 
-func (c *roleServiceClient) DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *roleServiceClient) DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RoleService/DeleteRole", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -89,7 +89,7 @@ type RoleServiceServer interface {
 	GetRole(context.Context, *GetRoleRequest) (*models.Role, error)
 	CreateRole(context.Context, *CreateRoleRequest) (*models.Role, error)
 	UpdateRole(context.Context, *UpdateRoleRequest) (*models.Role, error)
-	DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error)
+	DeleteRole(context.Context, *DeleteRoleRequest) (*empty.Empty, error)
 	mustEmbedUnimplementedRoleServiceServer()
 }
 
@@ -109,7 +109,7 @@ func (UnimplementedRoleServiceServer) CreateRole(context.Context, *CreateRoleReq
 func (UnimplementedRoleServiceServer) UpdateRole(context.Context, *UpdateRoleRequest) (*models.Role, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRole not implemented")
 }
-func (UnimplementedRoleServiceServer) DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedRoleServiceServer) DeleteRole(context.Context, *DeleteRoleRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRole not implemented")
 }
 func (UnimplementedRoleServiceServer) mustEmbedUnimplementedRoleServiceServer() {}

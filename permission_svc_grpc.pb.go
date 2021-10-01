@@ -4,12 +4,12 @@ package appcontextsvc_client
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	base "gitlab.com/place-me/appcontextsvc-client-go/base"
 	models "gitlab.com/place-me/appcontextsvc-client-go/models"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -25,7 +25,7 @@ type PermissionServiceClient interface {
 	GetPermission(ctx context.Context, in *GetPermissionRequest, opts ...grpc.CallOption) (*models.Permission, error)
 	CreatePermission(ctx context.Context, in *CreatePermissionRequest, opts ...grpc.CallOption) (*models.Permission, error)
 	UpdatePermission(ctx context.Context, in *UpdatePermissionRequest, opts ...grpc.CallOption) (*models.Permission, error)
-	DeletePermission(ctx context.Context, in *DeletePermissionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeletePermission(ctx context.Context, in *DeletePermissionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
 type permissionServiceClient struct {
@@ -72,8 +72,8 @@ func (c *permissionServiceClient) UpdatePermission(ctx context.Context, in *Upda
 	return out, nil
 }
 
-func (c *permissionServiceClient) DeletePermission(ctx context.Context, in *DeletePermissionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *permissionServiceClient) DeletePermission(ctx context.Context, in *DeletePermissionRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.PermissionService/DeletePermission", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -89,7 +89,7 @@ type PermissionServiceServer interface {
 	GetPermission(context.Context, *GetPermissionRequest) (*models.Permission, error)
 	CreatePermission(context.Context, *CreatePermissionRequest) (*models.Permission, error)
 	UpdatePermission(context.Context, *UpdatePermissionRequest) (*models.Permission, error)
-	DeletePermission(context.Context, *DeletePermissionRequest) (*emptypb.Empty, error)
+	DeletePermission(context.Context, *DeletePermissionRequest) (*empty.Empty, error)
 	mustEmbedUnimplementedPermissionServiceServer()
 }
 
@@ -109,7 +109,7 @@ func (UnimplementedPermissionServiceServer) CreatePermission(context.Context, *C
 func (UnimplementedPermissionServiceServer) UpdatePermission(context.Context, *UpdatePermissionRequest) (*models.Permission, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePermission not implemented")
 }
-func (UnimplementedPermissionServiceServer) DeletePermission(context.Context, *DeletePermissionRequest) (*emptypb.Empty, error) {
+func (UnimplementedPermissionServiceServer) DeletePermission(context.Context, *DeletePermissionRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePermission not implemented")
 }
 func (UnimplementedPermissionServiceServer) mustEmbedUnimplementedPermissionServiceServer() {}

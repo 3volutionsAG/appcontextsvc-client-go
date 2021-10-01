@@ -4,12 +4,12 @@ package appcontextsvc_client
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	base "gitlab.com/place-me/appcontextsvc-client-go/base"
 	models "gitlab.com/place-me/appcontextsvc-client-go/models"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -25,7 +25,7 @@ type ExternalConnectionServiceClient interface {
 	GetExternalConnection(ctx context.Context, in *GetExternalConnectionRequest, opts ...grpc.CallOption) (*models.ExternalConnection, error)
 	CreateExternalConnection(ctx context.Context, in *CreateExternalConnectionRequest, opts ...grpc.CallOption) (*models.ExternalConnection, error)
 	UpdateExternalConnection(ctx context.Context, in *UpdateExternalConnectionRequest, opts ...grpc.CallOption) (*models.ExternalConnection, error)
-	DeleteExternalConnection(ctx context.Context, in *DeleteExternalConnectionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteExternalConnection(ctx context.Context, in *DeleteExternalConnectionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
 type externalConnectionServiceClient struct {
@@ -72,8 +72,8 @@ func (c *externalConnectionServiceClient) UpdateExternalConnection(ctx context.C
 	return out, nil
 }
 
-func (c *externalConnectionServiceClient) DeleteExternalConnection(ctx context.Context, in *DeleteExternalConnectionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *externalConnectionServiceClient) DeleteExternalConnection(ctx context.Context, in *DeleteExternalConnectionRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.ExternalConnectionService/DeleteExternalConnection", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -89,7 +89,7 @@ type ExternalConnectionServiceServer interface {
 	GetExternalConnection(context.Context, *GetExternalConnectionRequest) (*models.ExternalConnection, error)
 	CreateExternalConnection(context.Context, *CreateExternalConnectionRequest) (*models.ExternalConnection, error)
 	UpdateExternalConnection(context.Context, *UpdateExternalConnectionRequest) (*models.ExternalConnection, error)
-	DeleteExternalConnection(context.Context, *DeleteExternalConnectionRequest) (*emptypb.Empty, error)
+	DeleteExternalConnection(context.Context, *DeleteExternalConnectionRequest) (*empty.Empty, error)
 	mustEmbedUnimplementedExternalConnectionServiceServer()
 }
 
@@ -109,7 +109,7 @@ func (UnimplementedExternalConnectionServiceServer) CreateExternalConnection(con
 func (UnimplementedExternalConnectionServiceServer) UpdateExternalConnection(context.Context, *UpdateExternalConnectionRequest) (*models.ExternalConnection, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateExternalConnection not implemented")
 }
-func (UnimplementedExternalConnectionServiceServer) DeleteExternalConnection(context.Context, *DeleteExternalConnectionRequest) (*emptypb.Empty, error) {
+func (UnimplementedExternalConnectionServiceServer) DeleteExternalConnection(context.Context, *DeleteExternalConnectionRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteExternalConnection not implemented")
 }
 func (UnimplementedExternalConnectionServiceServer) mustEmbedUnimplementedExternalConnectionServiceServer() {

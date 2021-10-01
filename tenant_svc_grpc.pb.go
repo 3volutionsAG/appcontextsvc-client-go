@@ -4,12 +4,12 @@ package appcontextsvc_client
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	base "gitlab.com/place-me/appcontextsvc-client-go/base"
 	models "gitlab.com/place-me/appcontextsvc-client-go/models"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -25,7 +25,7 @@ type TenantServiceClient interface {
 	GetTenant(ctx context.Context, in *GetTenantRequest, opts ...grpc.CallOption) (*models.Tenant, error)
 	CreateTenant(ctx context.Context, in *CreateTenantRequest, opts ...grpc.CallOption) (*models.Tenant, error)
 	UpdateTenant(ctx context.Context, in *UpdateTenantRequest, opts ...grpc.CallOption) (*models.Tenant, error)
-	DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
 type tenantServiceClient struct {
@@ -72,8 +72,8 @@ func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *UpdateTenant
 	return out, nil
 }
 
-func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.TenantService/DeleteTenant", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -89,7 +89,7 @@ type TenantServiceServer interface {
 	GetTenant(context.Context, *GetTenantRequest) (*models.Tenant, error)
 	CreateTenant(context.Context, *CreateTenantRequest) (*models.Tenant, error)
 	UpdateTenant(context.Context, *UpdateTenantRequest) (*models.Tenant, error)
-	DeleteTenant(context.Context, *DeleteTenantRequest) (*emptypb.Empty, error)
+	DeleteTenant(context.Context, *DeleteTenantRequest) (*empty.Empty, error)
 	mustEmbedUnimplementedTenantServiceServer()
 }
 
@@ -109,7 +109,7 @@ func (UnimplementedTenantServiceServer) CreateTenant(context.Context, *CreateTen
 func (UnimplementedTenantServiceServer) UpdateTenant(context.Context, *UpdateTenantRequest) (*models.Tenant, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTenant not implemented")
 }
-func (UnimplementedTenantServiceServer) DeleteTenant(context.Context, *DeleteTenantRequest) (*emptypb.Empty, error) {
+func (UnimplementedTenantServiceServer) DeleteTenant(context.Context, *DeleteTenantRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTenant not implemented")
 }
 func (UnimplementedTenantServiceServer) mustEmbedUnimplementedTenantServiceServer() {}
