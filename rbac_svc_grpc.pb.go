@@ -40,7 +40,7 @@ func NewRbacServiceClient(cc grpc.ClientConnInterface) RbacServiceClient {
 
 func (c *rbacServiceClient) AssignSubjectToRole(ctx context.Context, in *AssignSubjectToRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignSubjectToRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignSubjectToRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func (c *rbacServiceClient) AssignSubjectToRole(ctx context.Context, in *AssignS
 
 func (c *rbacServiceClient) RemoveSubjectFromRole(ctx context.Context, in *RemoveSubjectFromRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/RemoveSubjectFromRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/RemoveSubjectFromRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (c *rbacServiceClient) RemoveSubjectFromRole(ctx context.Context, in *Remov
 
 func (c *rbacServiceClient) AssignPermissionToRole(ctx context.Context, in *AssignPermissionToRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignPermissionToRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignPermissionToRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func (c *rbacServiceClient) AssignPermissionToRole(ctx context.Context, in *Assi
 
 func (c *rbacServiceClient) RemovePermissionFromRole(ctx context.Context, in *RemovePermissionFromRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/RemovePermissionFromRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/RemovePermissionFromRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func (c *rbacServiceClient) RemovePermissionFromRole(ctx context.Context, in *Re
 
 func (c *rbacServiceClient) AssignedRolesFromSubject(ctx context.Context, in *AssignedRolesFromSubjectRequest, opts ...grpc.CallOption) (*AssignedRolesResponse, error) {
 	out := new(AssignedRolesResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignedRolesFromSubject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignedRolesFromSubject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +85,7 @@ func (c *rbacServiceClient) AssignedRolesFromSubject(ctx context.Context, in *As
 
 func (c *rbacServiceClient) AssignedPermissionsFromSubject(ctx context.Context, in *AssignedPermissionsFromSubjectRequest, opts ...grpc.CallOption) (*AssignedPermissionsResponse, error) {
 	out := new(AssignedPermissionsResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignedPermissionsFromSubject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignedPermissionsFromSubject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func (c *rbacServiceClient) AssignedPermissionsFromSubject(ctx context.Context, 
 
 func (c *rbacServiceClient) AssignedSubjectsFromRole(ctx context.Context, in *AssignedSubjectsFromRoleRequest, opts ...grpc.CallOption) (*AssignedSubjectsFromRoleResponse, error) {
 	out := new(AssignedSubjectsFromRoleResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignedSubjectsFromRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignedSubjectsFromRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +103,7 @@ func (c *rbacServiceClient) AssignedSubjectsFromRole(ctx context.Context, in *As
 
 func (c *rbacServiceClient) AssignedRolesFromPermission(ctx context.Context, in *AssignedRolesFromPermissionRequest, opts ...grpc.CallOption) (*AssignedRolesResponse, error) {
 	out := new(AssignedRolesResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignedRolesFromPermission", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignedRolesFromPermission", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +112,7 @@ func (c *rbacServiceClient) AssignedRolesFromPermission(ctx context.Context, in 
 
 func (c *rbacServiceClient) AssignedPermissionsFromRole(ctx context.Context, in *AssignedPermissionsFromRoleRequest, opts ...grpc.CallOption) (*AssignedPermissionsResponse, error) {
 	out := new(AssignedPermissionsResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RbacService/AssignedPermissionsFromRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RbacService/AssignedPermissionsFromRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -189,7 +189,7 @@ func _RbacService_AssignSubjectToRole_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignSubjectToRole",
+		FullMethod: "/appcontext.services.RbacService/AssignSubjectToRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignSubjectToRole(ctx, req.(*AssignSubjectToRoleRequest))
@@ -207,7 +207,7 @@ func _RbacService_RemoveSubjectFromRole_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/RemoveSubjectFromRole",
+		FullMethod: "/appcontext.services.RbacService/RemoveSubjectFromRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).RemoveSubjectFromRole(ctx, req.(*RemoveSubjectFromRoleRequest))
@@ -225,7 +225,7 @@ func _RbacService_AssignPermissionToRole_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignPermissionToRole",
+		FullMethod: "/appcontext.services.RbacService/AssignPermissionToRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignPermissionToRole(ctx, req.(*AssignPermissionToRoleRequest))
@@ -243,7 +243,7 @@ func _RbacService_RemovePermissionFromRole_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/RemovePermissionFromRole",
+		FullMethod: "/appcontext.services.RbacService/RemovePermissionFromRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).RemovePermissionFromRole(ctx, req.(*RemovePermissionFromRoleRequest))
@@ -261,7 +261,7 @@ func _RbacService_AssignedRolesFromSubject_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignedRolesFromSubject",
+		FullMethod: "/appcontext.services.RbacService/AssignedRolesFromSubject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignedRolesFromSubject(ctx, req.(*AssignedRolesFromSubjectRequest))
@@ -279,7 +279,7 @@ func _RbacService_AssignedPermissionsFromSubject_Handler(srv interface{}, ctx co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignedPermissionsFromSubject",
+		FullMethod: "/appcontext.services.RbacService/AssignedPermissionsFromSubject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignedPermissionsFromSubject(ctx, req.(*AssignedPermissionsFromSubjectRequest))
@@ -297,7 +297,7 @@ func _RbacService_AssignedSubjectsFromRole_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignedSubjectsFromRole",
+		FullMethod: "/appcontext.services.RbacService/AssignedSubjectsFromRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignedSubjectsFromRole(ctx, req.(*AssignedSubjectsFromRoleRequest))
@@ -315,7 +315,7 @@ func _RbacService_AssignedRolesFromPermission_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignedRolesFromPermission",
+		FullMethod: "/appcontext.services.RbacService/AssignedRolesFromPermission",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignedRolesFromPermission(ctx, req.(*AssignedRolesFromPermissionRequest))
@@ -333,7 +333,7 @@ func _RbacService_AssignedPermissionsFromRole_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RbacService/AssignedPermissionsFromRole",
+		FullMethod: "/appcontext.services.RbacService/AssignedPermissionsFromRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RbacServiceServer).AssignedPermissionsFromRole(ctx, req.(*AssignedPermissionsFromRoleRequest))
@@ -345,7 +345,7 @@ func _RbacService_AssignedPermissionsFromRole_Handler(srv interface{}, ctx conte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var RbacService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appcontextsvc_client.services.RbacService",
+	ServiceName: "appcontext.services.RbacService",
 	HandlerType: (*RbacServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

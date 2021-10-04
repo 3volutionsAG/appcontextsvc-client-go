@@ -38,7 +38,7 @@ func NewTenantServiceClient(cc grpc.ClientConnInterface) TenantServiceClient {
 
 func (c *tenantServiceClient) ListTenants(ctx context.Context, in *base.ListRequest, opts ...grpc.CallOption) (*ListTenantsResponse, error) {
 	out := new(ListTenantsResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.TenantService/ListTenants", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.TenantService/ListTenants", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *tenantServiceClient) ListTenants(ctx context.Context, in *base.ListRequ
 
 func (c *tenantServiceClient) GetTenant(ctx context.Context, in *GetTenantRequest, opts ...grpc.CallOption) (*models.Tenant, error) {
 	out := new(models.Tenant)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.TenantService/GetTenant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.TenantService/GetTenant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *tenantServiceClient) GetTenant(ctx context.Context, in *GetTenantReques
 
 func (c *tenantServiceClient) CreateTenant(ctx context.Context, in *CreateTenantRequest, opts ...grpc.CallOption) (*models.Tenant, error) {
 	out := new(models.Tenant)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.TenantService/CreateTenant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.TenantService/CreateTenant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (c *tenantServiceClient) CreateTenant(ctx context.Context, in *CreateTenant
 
 func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *UpdateTenantRequest, opts ...grpc.CallOption) (*models.Tenant, error) {
 	out := new(models.Tenant)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.TenantService/UpdateTenant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.TenantService/UpdateTenant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *UpdateTenant
 
 func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.TenantService/DeleteTenant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.TenantService/DeleteTenant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -135,7 +135,7 @@ func _TenantService_ListTenants_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.TenantService/ListTenants",
+		FullMethod: "/appcontext.services.TenantService/ListTenants",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TenantServiceServer).ListTenants(ctx, req.(*base.ListRequest))
@@ -153,7 +153,7 @@ func _TenantService_GetTenant_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.TenantService/GetTenant",
+		FullMethod: "/appcontext.services.TenantService/GetTenant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TenantServiceServer).GetTenant(ctx, req.(*GetTenantRequest))
@@ -171,7 +171,7 @@ func _TenantService_CreateTenant_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.TenantService/CreateTenant",
+		FullMethod: "/appcontext.services.TenantService/CreateTenant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TenantServiceServer).CreateTenant(ctx, req.(*CreateTenantRequest))
@@ -189,7 +189,7 @@ func _TenantService_UpdateTenant_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.TenantService/UpdateTenant",
+		FullMethod: "/appcontext.services.TenantService/UpdateTenant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TenantServiceServer).UpdateTenant(ctx, req.(*UpdateTenantRequest))
@@ -207,7 +207,7 @@ func _TenantService_DeleteTenant_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.TenantService/DeleteTenant",
+		FullMethod: "/appcontext.services.TenantService/DeleteTenant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TenantServiceServer).DeleteTenant(ctx, req.(*DeleteTenantRequest))
@@ -219,7 +219,7 @@ func _TenantService_DeleteTenant_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TenantService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appcontextsvc_client.services.TenantService",
+	ServiceName: "appcontext.services.TenantService",
 	HandlerType: (*TenantServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

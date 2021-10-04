@@ -38,7 +38,7 @@ func NewRoleServiceClient(cc grpc.ClientConnInterface) RoleServiceClient {
 
 func (c *roleServiceClient) ListRoles(ctx context.Context, in *base.ListRequest, opts ...grpc.CallOption) (*ListRolesResponse, error) {
 	out := new(ListRolesResponse)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RoleService/ListRoles", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RoleService/ListRoles", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *roleServiceClient) ListRoles(ctx context.Context, in *base.ListRequest,
 
 func (c *roleServiceClient) GetRole(ctx context.Context, in *GetRoleRequest, opts ...grpc.CallOption) (*models.Role, error) {
 	out := new(models.Role)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RoleService/GetRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RoleService/GetRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *roleServiceClient) GetRole(ctx context.Context, in *GetRoleRequest, opt
 
 func (c *roleServiceClient) CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*models.Role, error) {
 	out := new(models.Role)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RoleService/CreateRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RoleService/CreateRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (c *roleServiceClient) CreateRole(ctx context.Context, in *CreateRoleReques
 
 func (c *roleServiceClient) UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*models.Role, error) {
 	out := new(models.Role)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RoleService/UpdateRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RoleService/UpdateRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func (c *roleServiceClient) UpdateRole(ctx context.Context, in *UpdateRoleReques
 
 func (c *roleServiceClient) DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/appcontextsvc_client.services.RoleService/DeleteRole", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/appcontext.services.RoleService/DeleteRole", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -135,7 +135,7 @@ func _RoleService_ListRoles_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RoleService/ListRoles",
+		FullMethod: "/appcontext.services.RoleService/ListRoles",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RoleServiceServer).ListRoles(ctx, req.(*base.ListRequest))
@@ -153,7 +153,7 @@ func _RoleService_GetRole_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RoleService/GetRole",
+		FullMethod: "/appcontext.services.RoleService/GetRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RoleServiceServer).GetRole(ctx, req.(*GetRoleRequest))
@@ -171,7 +171,7 @@ func _RoleService_CreateRole_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RoleService/CreateRole",
+		FullMethod: "/appcontext.services.RoleService/CreateRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RoleServiceServer).CreateRole(ctx, req.(*CreateRoleRequest))
@@ -189,7 +189,7 @@ func _RoleService_UpdateRole_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RoleService/UpdateRole",
+		FullMethod: "/appcontext.services.RoleService/UpdateRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RoleServiceServer).UpdateRole(ctx, req.(*UpdateRoleRequest))
@@ -207,7 +207,7 @@ func _RoleService_DeleteRole_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/appcontextsvc_client.services.RoleService/DeleteRole",
+		FullMethod: "/appcontext.services.RoleService/DeleteRole",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RoleServiceServer).DeleteRole(ctx, req.(*DeleteRoleRequest))
@@ -219,7 +219,7 @@ func _RoleService_DeleteRole_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var RoleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appcontextsvc_client.services.RoleService",
+	ServiceName: "appcontext.services.RoleService",
 	HandlerType: (*RoleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
