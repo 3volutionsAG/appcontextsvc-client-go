@@ -25,6 +25,6 @@ build:client:go:
     - ./scripts/build-go-client.sh
     - git add .
     - 'git commit -m "chore(release): update to version ${APP_VERSION}"'
-    - git tag "${APP_VERSION}"
+    - git tag "v${APP_VERSION}"
     - git push "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o ci.skip
     - git push --tags "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o ci.skip
